@@ -1,0 +1,133 @@
+{
+  "properties": {
+    "augmentationMetadata": {
+      "title": "Augmentation Metadata",
+      "description": "Details of any augmented fields, including the generation process and the location of the altered values within the release.",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/AugmentationMetadata"
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    }
+  },
+  "definitions": {
+    "AugmentationMetadata": {
+      "title": "Augmentation Metadata",
+      "description": "Details of any augmented fields, including the generation process and the location of the altered values within the release.",
+      "type": [
+        "object"
+      ],
+      "required": [
+        "id"
+      ],
+      "minProperties": 1,
+      "properties": {
+        "id": {
+          "title": "Augmentation Metadata ID",
+          "description": "A unique identifier for the augmentation.",
+          "type": "string",
+          "minLength": 1
+        },
+        "description": {
+          "title": "Augmentation Description",
+          "description": "A description of any processed used to generate the altered field.",
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1
+        },
+        "generationProcess": {
+          "title": "Generation Process",
+          "description": "A general description of the process used from the open codelist [augmentationGenerationProcess](https://github.com/spendnetwork/ocds_augmentationDetails_extension/codelists/augmentationGenerationProcess.csv)",
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "generationMethod": {
+          "title": "Generation Method",
+          "description": "An identifier referencing the generation process of the augmented data. This is used to group fields generated via the same process.",
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1
+        },
+        "generationMethodDetails": {
+          "title": "Generation Method Details",
+          "description": "A description of the process used to generate the fields, along with any tools used where relevant.",
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1
+        },
+        "matchDate": {
+          "title": "Match Date",
+          "description": "The date on which the information was generated, or the date it was most recently updated.",
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "references": {
+          "title": "References",
+          "description": "References to the location of the augmented or generated field. This currently includes the method of locating by JSONPath within the same release, or by the OCID (and release ID) of a separate process.",
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/definitions/Reference"
+          }
+        }
+      }
+    },
+    "Reference": {
+      "title": "Reference",
+      "description": "A reference to the JSONPath of the altered field within the release, or to the OCID (and release ID where necessary) of another contracting process.",
+      "type": "object",
+      "required": [
+        "id",
+        "type"
+      ],
+      "minProperties": 1,
+      "properties": {
+        "id": {
+          "title": "Reference ID",
+          "description": "The reference to the location of generated information. This can currently be a JSONPath reference or an OCID.",
+          "type": "string",
+          "minLength": 1
+        },
+        "type": {
+          "title": "Reference Type",
+          "description": "The type of reference method used from the open [referenceType](https://github.com/spendnetwork/ocds_augmentationDetails_extension/codelists/referenceType.csv) codelist.",
+          "type": "string",
+          "minLength": 1,
+          "codelist": "referenceType.csv",
+          "openCodelist": true
+        },
+        "matchDate": {
+          "title": "Match Date",
+          "description": "The date on which the information was generated, or the date it was most recently updated.",
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "matchValue": {
+          "title": "Match Value",
+          "description": "A value qualify the closeness of the match, given as a percentage.",
+          "type": [
+            "integer",
+            "null"
+          ]
+        }
+      }
+    }
+  }
+}

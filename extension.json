@@ -1,0 +1,25 @@
+{
+  "name": {
+    "en": "Augmentation Details Extension"
+  },
+  "description": {
+    "en": "A release level object which provides details of any fields which have been augmented, along with any extra external generated information such as references to expected duplicates."
+  },
+  "documentationUrl": {
+    "en": "https://github.com/spendnetwork/ocds_augmentationDetails_extension"
+  },
+  "schemas": [
+    "release-schema.json"
+  ],
+  "codelists": [
+    "augmentationGenerationProcess.csv",
+    "referenceType.csv"
+  ],
+  "compatibility": [
+    "1.1"
+  ],
+  "contactPoint": {
+    "name": "Erin Clark",
+    "email": "erin@spendnetwork.com"
+  }
+}

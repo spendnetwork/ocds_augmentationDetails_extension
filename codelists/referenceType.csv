@@ -1,0 +1,3 @@
+Code,Title,Description
+ocid,OCID,This references to another contracting process by OCID.
+releasePath,Release Path,This references to a position within a release, using JSONPath reference.
