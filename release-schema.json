@@ -123,7 +123,7 @@
           "title": "Match Value",
           "description": "A value qualify the closeness of the match, given as a percentage.",
           "type": [
-            "integer",
+            "number",
             "null"
           ]
         }
